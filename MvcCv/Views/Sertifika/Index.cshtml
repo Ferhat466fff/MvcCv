@@ -1,0 +1,83 @@
+﻿@model List<MvcCv.Models.Entity.Tbl_Sertifikalarim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    string ButtonColor = "";
+    string SPANColor = "";
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+
+
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                @foreach (var item in Model)
+                                {
+                                    if (item.ID % 2 == 0)
+                                    {
+                                        ButtonColor = "btn-primary";
+                                        SPANColor = "btn-primary";
+                                    }
+                                    else
+                                    {
+                                        ButtonColor = "btn-success";
+                                        SPANColor = "btn-success";
+                                    }
+                                    <div class="timeline timeline-inverse">
+                                        <!-- timeline time label -->
+
+                                        <div class="time-label">
+                                            <!-- Buton düzenlemesi -->
+                                            <a href="/Sertifika/UpdateSertifika/@item.ID" class="btn @ButtonColor">
+                                                <span class="badge badge-pill @SPANColor">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                    @item.Tarih
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <div>
+
+                                            <div class="timeline-item">
+                                                <div class="timeline-body">
+                                                    @item.Aciklama
+                                                </div>
+                                                <div class="timeline-footer">
+                                                    <a href="@item.Url" class="btn btn-primary btn-sm">Sertifikayı Gör</a>
+                                                    <a href="/Sertifika/DeleteSertifika/@item.ID" class="btn btn-danger btn-sm">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                }
+                                <a href="/Sertifika/AddSertifika/" style="margin-top:-50px;" class="btn btn-outline-info"> <i class="fas fa-plus"></i>Yeni Sertifika Ekle</a>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+</body>
+</html>

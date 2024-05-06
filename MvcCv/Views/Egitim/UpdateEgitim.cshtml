@@ -1,0 +1,36 @@
+﻿@model MvcCv.Models.Entity.Tbl_Egitim
+@{
+    ViewBag.Title = "UpdateEgitim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Sosyal Medya Güncelleme Sayfası</h4>
+<br />
+<form method="post" class="form-group">
+
+    @Html.HiddenFor(x => x.ID)
+
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", @placeholder = "Başlık Giriniz" })
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @style = "color:red" })@*Validation Başlık İçin Çalışacak.""-->Mesajın İçeriği(TblEgitim Classında Vermiştik)Rengi Kırmıız Olacak*@
+    <br />
+    <label>AltBaslik</label>
+    @Html.TextBoxFor(x => x.AltBaslik, new { @class = "form-control", @placeholder = "Alt Başlık Giriniz" })
+    <br />
+    <label>AltBaslik2</label>
+    @Html.TextBoxFor(x => x.AltBaslik2, new { @class = "form-control", @placeholder = "Alt Başlık Giriniz" })
+    <br />
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @placeholder = "Tarih Giriniz" })
+    <br />
+    <label>Genel Not Ortalama</label>
+    @Html.TextBoxFor(x => x.GNO, new { @class = "form-control", @placeholder = "Genel Not Ortalamanızı Giriniz" })
+    @Html.ValidationMessageFor(x => x.GNO, "", new { @style = "color:blue" })
+    <br />
+
+
+
+    <button class="btn btn-outline-info"><i class="fa fa-sync"></i>Güncelle</button>
+</form>
+
+

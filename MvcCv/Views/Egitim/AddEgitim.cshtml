@@ -1,0 +1,33 @@
+﻿@model MvcCv.Models.Entity.Tbl_Egitim
+@{
+    ViewBag.Title = "AddEgitim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Eğitim Ekleme Sayfası</h4>
+<br />
+<form method="post" class="form-group">
+
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", @placeholder = "Başlık Giriniz" })
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @style = "color:red" })@*Validation Başlık İçin Çalışacak.""-->Mesajın İçeriği(TblEgitim Classında Vermiştik)Rengi Kırmıız Olacak*@
+    @*validation ->Boş Geçilememesini Sağlıyor Models Entitiy Model1.tt tıkla ve tbl rgiitmler kısmına git [Required] ekle*@
+    <br />
+
+    @Html.TextBoxFor(x => x.AltBaslik, new { @class = "form-control", @placeholder = "Alt Başlık Giriniz" })
+    @Html.ValidationMessageFor(x => x.AltBaslik, "", new { @style = "color:red" })
+    <br />
+    @Html.TextBoxFor(x => x.AltBaslik2, new { @class = "form-control", @placeholder = "Alt Başlık Giriniz" })
+    <br />
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @placeholder = "Tarih Giriniz" })
+
+    <br />
+
+    @Html.TextBoxFor(x => x.GNO, new { @class = "form-control", @placeholder = "Genel Not Ortalamanızı Giriniz" })
+    @Html.ValidationMessageFor(x => x.GNO, "", new { @style = "color:blue" })
+    <br />
+
+
+
+    <button class="btn btn-outline-success"><i class="fas fa-save"></i>Kaydet</button>
+</form>
+

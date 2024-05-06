@@ -1,0 +1,27 @@
+﻿@model MvcCv.Models.Entity.Tbl_Deneyimlerim
+@{
+    ViewBag.Title = "AddDeneyimler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Deneyim Ekleme Sayfası</h4>
+<br />
+<form method="post" class="form-group">
+
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", @placeholder = "Başlığı Giriniz" })
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @style = "color:red" })
+    <br />
+
+    @Html.TextBoxFor(x => x.AltBaslik, new { @class = "form-control", @placeholder = "Alt Başlığı Giriniz" })
+    @Html.ValidationMessageFor(x => x.AltBaslik, "", new { @style = "color:red" })
+    <br />
+
+    @Html.TextAreaFor(x => x.Aciklama, 5, 1, new { @class = "form-control", @placeholder = "Açıklama Yazınız" })
+    <br />
+
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @placeholder = "Tarih Giriniz" })
+    <br />
+
+    <button class="btn btn-outline-success"><i class="fas fa-save"></i>Kaydet</button>
+</form>
+

@@ -1,0 +1,30 @@
+﻿@model MvcCv.Models.Entity.Tbl_Deneyimlerim
+@{
+    ViewBag.Title = "UpdateDeneyimler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Deneyim Düzenleme Sayfası</h4>
+<br />
+<form method="post">
+
+    @Html.HiddenFor(x => x.ID)
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", @placeholder = "Başlığı Giriniz" })
+    @Html.ValidationMessageFor(x => x.Baslik, "", new { @style = "color:red" })
+    <br />
+
+    @Html.TextBoxFor(x => x.AltBaslik, new { @class = "form-control", @placeholder = "Alt Başlığı Giriniz" })
+    @Html.ValidationMessageFor(x => x.AltBaslik, "", new { @style = "color:red" })
+    <br />
+
+    @Html.TextAreaFor(x => x.Aciklama, 5, 1, new { @class = "form-control", @placeholder = "Açıklama Yazınız" })
+    <br />
+
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @placeholder = "Tarih Giriniz" })
+    <br />
+
+    <button class="btn btn-outline-info"><i class="fa fa-sync"></i>Güncelle</button>
+</form>
+
+
+

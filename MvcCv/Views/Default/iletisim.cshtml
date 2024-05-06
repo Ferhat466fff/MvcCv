@@ -1,0 +1,23 @@
+﻿@model MvcCv.Models.Entity.Tbl_iletisim
+
+
+<div class="resume-section-content">
+    <h3>Bana Ulaşın</h3>
+    
+    <form method="post">
+        <label>Ad Soyad</label><br />
+        @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })
+
+        <label>Mail</label><br />
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+
+        <label>Konu</label><br />
+        @Html.TextBoxFor(x => x.Konu, new { @class = "form-control" })
+
+        <label>Mesaj</label><br />
+        @Html.TextBoxFor(x => x.Mesaj, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Mesaj Gönder</button>
+    </form>
+    
+</div>

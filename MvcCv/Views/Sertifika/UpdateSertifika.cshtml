@@ -1,0 +1,26 @@
+﻿@model MvcCv.Models.Entity.Tbl_Sertifikalarim
+@{
+    ViewBag.Title = "UpdateSertifika";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Sertifika Düzenleme Sayfası</h4>
+<br />
+<form method="post">
+
+    @Html.HiddenFor(x => x.ID)
+    <label>Sertifika Açıklaması</label>
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Aciklama, "", new { @style = "color:red" })
+    <br />
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Tarih, "", new { @style = "color:red" })
+    <br />
+    <button class="btn btn-outline-success"><i class="fas fa-edit"></i>Güncelle</button>
+    <a href="/Sertifika/DeleteSertifika/@ViewBag.dgr" class="btn btn-outline-danger"><i class="fas fa-trash"></i>Sil</a>
+
+</form>
+
+
+

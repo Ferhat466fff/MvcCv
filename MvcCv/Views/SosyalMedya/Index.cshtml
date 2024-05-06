@@ -1,0 +1,105 @@
+﻿@model List<MvcCv.Models.Entity.TblSosyalMedya>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Yetenek Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <td>Sosyal Medya</td>
+                                            <td>Durum</td>
+                                            <td>İşlemler</td>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+
+                                        <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.Ad</td>
+                                            @if (item.Durum == true)
+                                            {
+                                                <td>Aktif</td>
+
+                                            }
+                                            else
+                                            {
+                                                <td>Pasif</td>
+                                            }
+                                            <td>
+                                                <a href="/SosyalMedya/DeleteSosyalMedya/@item.ID" class="btn btn-outline-danger"><i class="fa fa-trash"></i>Sil</a>
+                                                <a href="/SosyalMedya/UpdateSosyalMedya/@item.ID" class="btn btn-outline-warning"><i class="fa fa-pen"></i>Düzenle</a>
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <br />
+                                <button class="btn btn-outline-info" data-toggle="modal" data-target="#Modal1"><i class="fas fa-plus"></i>Yeni Sosyal Medya Hesabı Ekle</button>@*Aşağıdaki Modal Giddecek.*@
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+        @*Pop-up Kullanımı-->Yeni bir sayfa oluşturduk.*@
+        <div class="modal" id="Modal1">
+            @*Yukarda Ynei Sosyal Medya Ekle Butonuna #Modal1 verdik.*@
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        @*Başlık Kısmı*@
+                        <h2 class="modal-title">Sosyal Medya Ekleme Penceresi</h2>
+                    </div>
+                    <form method="post" action="/SosyalMedya/Ekle/">
+                        <div class="modal-body">
+                            @*body-->gövdesi*@
+                            <label>Sosyal Medya İsmi</label>
+                            <input type="text" name="Ad" class="form-control" />
+                            <br />
+                            <label>Sosyal Medya Linki</label>
+                            <input type="text" name="Link" class="form-control" />
+                            <br />
+                            <label>İkon Değeri</label>
+                            <input type="text" name="Icon" class="form-control" />
+                            <br />
+                            <button class="btn btn-outline-info">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

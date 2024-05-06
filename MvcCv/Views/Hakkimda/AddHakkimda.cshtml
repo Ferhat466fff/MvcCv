@@ -1,0 +1,52 @@
+﻿@model MvcCv.Models.Entity.Tbl_Hakkimda
+@{
+    ViewBag.Title = "AddHakkimda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Hakkımda Ekleme Sayfası</h4>
+<br />
+@using (Html.BeginForm("AddHakkimda", "Hakkimda", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        <label>Ad:</label>
+        <input class="form-control" type="text" name="Ad" />
+    </div>
+    @Html.ValidationMessageFor(x => x.Ad, "", new { @style = "color:red" })
+    <div>
+        <label>Soyad:</label>
+        <input class="form-control" type="text" name="Soyad" />
+    </div>
+    @Html.ValidationMessageFor(x => x.Soyad, "", new { @style = "color:red" })
+    <div>
+        <label>Adres:</label>
+        <input class="form-control" type="text" name="Adres" />
+    </div>
+    @Html.ValidationMessageFor(x => x.Adres, "", new { @style = "color:red" })
+
+    <div>
+        <label>Telefon:</label>
+        <input class="form-control" type="text" name="Telefon" />
+    </div>
+    @Html.ValidationMessageFor(x => x.Telefon, "", new { @style = "color:red" })
+    <div>
+        <label>Mail:</label>
+        <input class="form-control" type="text" name="Mail" />
+    </div>
+    @Html.ValidationMessageFor(x => x.Mail, "", new { @style = "color:red" })
+    <div>
+        <label>Aciklama:</label>
+        <input class="form-control" type="text" name="Aciklama" />
+    </div>
+    @Html.ValidationMessageFor(x => x.Aciklama, "", new { @style = "color:red" })
+    <div>
+        <label>Resim:</label>
+        <input class="form-control" type="file" name="Resim" />
+    </div>
+    @Html.ValidationMessageFor(x => x.Resim, "", new { @style = "color:red" })
+    <!-- Resmi kaydetmek için ayrı bir buton -->
+    <button class="btn btn-outline-success" id="saveImage">Resmi Kaydet</button>
+
+}
+
+

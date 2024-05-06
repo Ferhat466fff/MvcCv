@@ -1,0 +1,24 @@
+﻿@model MvcCv.Models.Entity.Tbl_Yetenekler
+@{
+    ViewBag.Title = "UpdateYetenek";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Deneyim Düzenleme Sayfası</h4>
+<br />
+<form method="post">
+
+    @Html.HiddenFor(x => x.ID)
+    @Html.TextBoxFor(x => x.Yetenek, new { @class = "form-control", @placeholder = "Yeteneğinizi Giriniz" })
+    @Html.ValidationMessageFor(x => x.Yetenek, "", new { @style = "color:red" })
+    <br />
+
+    @Html.TextBoxFor(x => x.Oran, new { @class = "form-control", @placeholder = "Dereceniiz Giriniz" })
+    @Html.ValidationMessageFor(x => x.Oran, "", new { @style = "color:red" })
+    <br />
+
+
+
+    <button class="btn btn-outline-info"><i class="fa fa-sync"></i>Güncelle</button>
+</form>
+

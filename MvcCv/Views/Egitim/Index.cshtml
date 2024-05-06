@@ -1,0 +1,40 @@
+﻿@model List<MvcCv.Models.Entity.Tbl_Egitim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Eğitimlerim Sayfası</h3>
+
+<table class="table table-bordered table-hover">
+
+    <tr>
+        <th>#</th>
+        <td>Başlık</td>
+        <td>AltBaşlık</td>
+        <td>AltBaşlık2</td>
+        <td>Genel Not Ortalama</td>
+        <td>Tarih</td>
+        <td>İşlemler</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Baslik</td>
+            <td>@item.AltBaslik</td>
+            <td>@item.AltBaslik2</td>
+            <td>@item.GNO</td>
+            <td>@item.Tarih</td>
+            <td>
+                <a href="/Egitim/DeleteEgitim/@item.ID" class="btn btn-outline-danger"><i class="fa fa-trash"></i>Sil</a>
+                <a href="/Egitim/UpdateEgitim/@item.ID" class="btn btn-outline-warning"><i class="fa fa-pen"></i>Düzenle</a>
+            </td>
+        </tr>
+
+    }
+</table>
+<a href="/Egitim/AddEgitim" class="btn btn-outline-info"><i class="fas fa-plus"></i> Yeni Eğitim Ekle</a>
+
+

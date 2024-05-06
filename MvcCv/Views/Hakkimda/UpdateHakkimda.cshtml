@@ -1,0 +1,39 @@
+﻿@model MvcCv.Models.Entity.Tbl_Hakkimda
+@{
+    ViewBag.Title = "UpdateHakkimda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateHakkimda", "Hakkimda", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <form method="post" enctype="multipart/form-data">
+
+        @Html.HiddenFor(x => x.ID)
+        <label>Ad</label>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+        <br />
+        <label>Soyad</label>
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+        <br />
+        <label>Adres</label>
+        @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+        <br />
+        <label>Telefon</label>
+        @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+        <br />
+        <label>Mail</label>
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        <br />
+        <label>Açıklama</label>
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+        <br />
+        <label>Resim Url</label>
+        <input type="file" name="Resim" value="@Model.Resim" />
+        <br />
+
+        <button class="btn btn-primary"><i class="fa fa-sync"></i>Güncelle</button>
+    </form>
+
+}
+

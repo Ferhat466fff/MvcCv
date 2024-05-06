@@ -1,0 +1,78 @@
+﻿@model List<MvcCv.Models.Entity.Tbl_Hakkimda>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Hakkımda Sayfası </h2>
+<br />
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                               
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th>ID</th>
+                                            <td>Ad</td>
+                                            <td>Soyad</td>
+                                            <td>Adres</td>
+                                            <td>Telefon</td>
+                                            <td>Mail</td>
+                                            <td>Açıklama</td>
+                                            <td>Resim</td>
+                                            <td>İşlemler</td>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.Ad</td>
+                                            <td>@item.Soyad</td>
+                                            <td>@(item.Adres.Substring(0,Math.Min(50,item.Adres.Length)))</td>
+                                            <td>@item.Telefon</td>
+                                            <td>@item.Mail</td>
+                                            <td>@(item.Aciklama.Substring(0, Math.Min(70, item.Aciklama.Length)))</td>
+                                            <td><img src="@item.Resim" class="img-thumbnail" style="width:100px; height:100px; object-fit:cover" /></td>
+
+                                            <td>
+                                                <a href="/Hakkimda/DeleteHakkimda/@item.ID" class="btn btn-outline-danger"><i class="fa fa-trash"></i>Sil</a>
+                                                <a href="/Hakkimda/UpdateHakkimda/@item.ID" class="btn btn-outline-warning"><i class="fa fa-pen"></i>Düzenle</a>
+                                            </td>
+
+                                        </tr>
+}
+                                        <a href="/Hakkimda/AddHakkimda" class="btn btn-outline-primary "><i class="fas fa-plus"></i>Yeni HAKKİMDA Ekle</a>
+                                    </tbody>
+                                </table>
+                                <br />
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

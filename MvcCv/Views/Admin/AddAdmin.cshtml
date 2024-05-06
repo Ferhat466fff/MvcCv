@@ -1,0 +1,26 @@
+﻿@model MvcCv.Models.Entity.Tbl_Admin
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Admin Ekleme Sayfası</h4>
+<br />
+@using (Html.BeginForm("AddAdmin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        <label for="username">Kullanıcı Adı:</label>
+        <input class="form-control" type="text"  name="KullaniciAdi" />
+    </div>
+    <div>
+        <label for="password">Şifre:</label>
+        <input class="form-control" type="password"  name="Sifre" />
+    </div>
+    <div>
+        <label>Ürün Görseli:</label>
+        <input class="form-control" type="file"  name="Resim" placeholder="ürün görseli secin" />
+    </div>
+    <!-- Resmi kaydetmek için ayrı bir buton -->
+    <button  class="btn btn-outline-success"  id="saveImage">Resmi Kaydet</button>
+
+}

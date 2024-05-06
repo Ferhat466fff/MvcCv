@@ -1,0 +1,45 @@
+﻿@model List<MvcCv.Models.Entity.Tbl_Deneyimlerim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Deneyimlerim Sayfası</h3>
+
+<table class="table table-bordered table-hover">
+
+    <tr>
+        <th>#</th>
+        <td>Başlık</td>
+        <td>AltBaşlık</td>
+        <td>Açıklama</td>
+        <td>Tarih</td>
+        <td>İşlemler</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Baslik</td>
+            <td>@item.AltBaslik</td>
+            <td>
+                @{
+                    if (!string.IsNullOrEmpty(item.Aciklama))//açıklama boş değilse
+                    {
+                        <text>@item.Aciklama.Substring(0, Math.Min(60, item.Aciklama.Length))</text>
+                    }
+               
+                }
+            </td>
+            <td>@item.Tarih</td>
+            <td>
+                <a href="/Deneyimler/DeleteDeneyimler/@item.ID" class="btn btn-outline-danger"><i class="fa fa-trash"></i>Sil</a>
+                <a href="/Deneyimler/UpdateDeneyimler/@item.ID" class="btn btn-outline-warning"><i class="fa fa-pen"></i>Düzenle</a>
+            </td>
+        </tr>
+
+    }
+</table>
+<a href="/Deneyimler/AddDeneyimler" class="btn btn-outline-info"><i class="fas fa-plus"></i>Yeni Deneyim Ekle</a>
+
